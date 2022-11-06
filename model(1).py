@@ -13,7 +13,7 @@ DAYS = 30
 CURRENT_DATE = date.today()
 
 
-# Uses user address to return data extracted from positionstack API
+# GETS RAW FILE FROM USER ADDRESS INPUT
 def get_json_data(user_address):
   forward = "http://api.positionstack.com/v1/forward"
   url = f"{forward}?access_key={API_KEY_LL}&query={user_address}"  # Formats url with raw data
@@ -21,7 +21,7 @@ def get_json_data(user_address):
   return r.json()
 
 
-# Extracts latitude and longitude of an address inputted by user
+# GETS LATTITUDE AND LONGITUDE DATA
 def get_ll(user_address):
   lat_lon = []
   addy_data = get_json_data(user_address)
@@ -34,7 +34,7 @@ def get_ll(user_address):
   lat_lon.append(lon)
   return lat_lon
 
-
+# RETRIEVES WEATHER DATA FROM ADDRESS
 def get_forecast_dict(user_address):
   lat_lon = get_ll(user_address)
   lat = lat_lon[0]
