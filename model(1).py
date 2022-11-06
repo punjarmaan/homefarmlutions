@@ -1,4 +1,4 @@
-"""The coolest farm game ever - Plainview, Illinois"""
+"""The coolest farming simulator ever."""
 
 from matplotlib import pyplot as plt
 import requests
